@@ -17,11 +17,11 @@ class ProductList(APIView):
         top_deals_of_the_day = Product.objects.filter(section__name='Top Deals Of The Week')
         top_selling_products = Product.objects.filter(section__name='Top Selling Products')
         recommended_products = Product.objects.filter(section__name='Recommended')
-        serializer_top_deals = ProductSerializer(top_deals_of_the_day, many=True)
+        serializer_top = ProductSerializer(top_deals_of_the_day, many=True)
         serializer_selling = ProductSerializer(top_selling_products, many=True)
         serializer_recommended = ProductSerializer(recommended_products, many=True)
         return Response({
-            "top_deals_of_the_day": serializer_top_deals.data,
+            "top_deals_of_the_day": serializer_top.data,
             "top_selling_products": serializer_selling.data,
             "recommended_products": serializer_recommended.data
         })

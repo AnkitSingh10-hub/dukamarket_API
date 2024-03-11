@@ -14,15 +14,15 @@ class DepartmentList(ListAPIView):
 
 class ProductList(APIView):
     def get(self, request):
-        top_deals_of_the_day = Product.objects.filter(section__name='Top Deals Of The Week')
-        top_selling_products = Product.objects.filter(section__name='Top Selling Products')
+        new_products = Product.objects.filter(section__name='New Products')
+        featured_products = Product.objects.filter(section__name='Featured Products')
         recommended_products = Product.objects.filter(section__name='Recommended')
-        serializer_top = ProductSerializer(top_deals_of_the_day, many=True)
-        serializer_selling = ProductSerializer(top_selling_products, many=True)
+        serializer_new_products = ProductSerializer(new_products, many=True)
+        serializer_featured_products = ProductSerializer(featured_products, many=True)
         serializer_recommended = ProductSerializer(recommended_products, many=True)
         return Response({
-            "top_deals_of_the_day": serializer_top.data,
-            "top_selling_products": serializer_selling.data,
+            "top_deals_of_the_day": serializer_new_products.data,
+            "top_selling_products": serializer_featured_products.data,
             "recommended_products": serializer_recommended.data
         })
         

@@ -41,8 +41,8 @@ class ProductStatus(models.TextChoices):
 
     
 class SectionType(models.TextChoices):
-    TOPDEALSOFTHEDAY = "Top Deals Of The Week", "Top Deals Of The Week"    
-    TOPSELLINGPRODUCTS = "Top Selling Products", "Top Selling Products"    
+    NEWPRODUCTS = "New Products", "New Products"    
+    FEATUREDPRODUCTS = "Featured Products", "Featured Products"    
     RECOMMENDED = "Recommended", "Recommended"    
     
 

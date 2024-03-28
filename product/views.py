@@ -15,7 +15,7 @@ class DepartmentViewSet(viewsets.ModelViewSet):
     http_method_names = ['get','head','post']
 
 
-class DashboardView(generics.ListAPIView):
+class DashboardView(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     pagination_class = CustomPageNumberPagination

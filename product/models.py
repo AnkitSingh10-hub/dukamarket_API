@@ -2,8 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 from django.db.models.signals import pre_save
+from datetime import datetime
 
-# Create your models here.
 
 class Department(models.Model):
     name = models.CharField(max_length=50)
@@ -90,6 +90,7 @@ class Product(models.Model):
     brand = models.ForeignKey(Brand, on_delete=models.DO_NOTHING)
     color = models.ForeignKey(Color, on_delete=models.DO_NOTHING)
     section = models.ForeignKey(Section, on_delete=models.DO_NOTHING, null=True, blank=True)
+
     
     def __str__(self) -> str:
         return f"{self.product_name}"

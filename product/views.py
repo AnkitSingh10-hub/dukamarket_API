@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from rest_framework.generics import ListAPIView
 from rest_framework.views import APIView
+from rest_framework.generics import *
+from rest_framework.mixins import *
 from .models import Department, Category, SubCategory, Product
 from rest_framework.response import Response
 from .serializers import DepartmentSerializer, CategorySerializer, SubCategorySerializer, ProductSerializer
@@ -26,3 +28,7 @@ class ProductList(APIView):
             "recommended_products": serializer_recommended.data
         })
         
+class CreateProduct(CreateAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+           

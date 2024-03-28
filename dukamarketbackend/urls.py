@@ -6,5 +6,5 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('product/', include('product.urls'))
+    path('api/', include("dukamarketbackend.api_routers")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
